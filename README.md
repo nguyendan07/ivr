@@ -1,4 +1,4 @@
-# Interactive Voice Response (IVR) System with Python, Django and Twilio
+# Interactive Voice Response (IVR) System
 
 
 **Install pipenv and create virtual environments**
