@@ -7,10 +7,12 @@ from django.views.decorators.csrf import csrf_exempt
 from twilio.twiml.voice_response import VoiceResponse
 
 from .models import Movie, Show, Theater
+from .validates import validate_django_request
 
 
 @csrf_exempt
 def choose_theater(request: HttpRequest) -> HttpResponse:
+    validate_django_request(request)
     vr = VoiceResponse()
     vr.say("Welcome to movie info!")
 
@@ -33,6 +35,7 @@ def choose_theater(request: HttpRequest) -> HttpResponse:
 
 @csrf_exempt
 def choose_movie(request: HttpRequest) -> HttpResponse:
+    validate_django_request(request)
     vr = VoiceResponse()
 
     digits = request.POST.get('Digits')
@@ -60,6 +63,7 @@ def choose_movie(request: HttpRequest) -> HttpResponse:
 
 @csrf_exempt
 def list_showtimes(request: HttpRequest) -> HttpResponse:
+    validate_django_request(request)
     vr = VoiceResponse()
 
     digits = request.POST.get('Digits')
