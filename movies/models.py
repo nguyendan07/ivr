@@ -10,6 +10,9 @@ class Theater(models.Model):
     address = models.TextField()
     digits = models.PositiveSmallIntegerField(unique=True)
 
+    def __str__(self):
+        return self.name
+
 
 class Movie(models.Model):
     class Meta:
@@ -18,6 +21,9 @@ class Movie(models.Model):
     
     title = models.CharField(max_length=50)
     digits = models.PositiveSmallIntegerField(unique=True)
+
+    def __str__(self):
+        return "{}".format(self.title)
 
 
 class Show(models.Model):
